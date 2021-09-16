@@ -8,36 +8,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace K2host.Console.Classes
 {
-    [Serializable()]
+
     public class Output : IDisposable
     {
 
-        public List<List<string>> Commands
-        {
-            get;
-        }
+        public List<List<string>> Commands { get; }
 
-        public string Error
-        {
-            get;
-            set;
-        }
+        public string Error { get; set; }
 
-        public int WaitTime
-        {
-            get;
-            set;
-        }
+        public int WaitTime { get; set; }
 
-        public string OriginalCommand
-        {
-            get;
-            set;
-        }
+        public string OriginalCommand { get; set; }
 
         public Output()
         {
@@ -61,11 +45,10 @@ namespace K2host.Console.Classes
 
         public int GetStackIndex(string subcommand)
         {
-            return Commands.FindIndex(0, Commands.Count, c => c[0] == subcommand);
-            //for (var i = 0; i < Commands.Count; i++)
-            //    if (Commands[i][0] == subcommand)
-            //        return i;
-            //return -1;
+            for (var i = 0; i < Commands.Count; i++)
+                if (Commands[i][0] == subcommand)
+                    return i;
+            return -1;
         }
 
         public List<string> GetStack(string subcommand)

@@ -7,11 +7,10 @@
 */
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace K2host.Console.Classes
 {
-    [Serializable()]
+
     public class OCommandParser : IDisposable
     {
 
