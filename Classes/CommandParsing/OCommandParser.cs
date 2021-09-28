@@ -7,6 +7,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace K2host.Console.Classes
 {
@@ -14,49 +15,41 @@ namespace K2host.Console.Classes
     public class OCommandParser : IDisposable
     {
 
-        public char[] CommandDelimitors { get; set; }
-        public char[] SubCommandDelimitors { get; set; }
+        public string CommandDelimitor { get; set; } = ";";
 
-        public OCommandParser() 
-        {
-            CommandDelimitors       = new char[] { ';' };
-            SubCommandDelimitors    = new char[] { '.', ' ' };
-        }
+        public OCommandParser() { }
 
-        /// <summary>
-        /// Splits commands with a semicolon ;
-        /// The splits the subcommands with either a dot . or space
-        /// </summary>
-        /// <param name="e"></param>
-        /// <returns></returns>
         public Output Parse(string e)
         {
 
             Output ret = new();
 
-            if (e.Trim() == string.Empty)
+            if (e == null || e.Trim() == string.Empty)
                 return ret;
 
             ret.OriginalCommand = e;
 
             try
             {
-
                 List<string> subcommands    = new();
                 List<string> stack          = new();
 
-                subcommands.AddRange(e.Split(CommandDelimitors, StringSplitOptions.RemoveEmptyEntries));
+                subcommands.AddRange(Regex.Split(e, CommandDelimitor + "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
 
                 subcommands.ForEach(subcommand => {
-                    stack.AddRange(subcommand.Split(SubCommandDelimitors, StringSplitOptions.RemoveEmptyEntries));
+                   
+                    stack.AddRange(Regex.Split(subcommand, " (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
+                   
                     ret.Commands.Add(new List<string>(stack.ToArray()));
-                    stack.Clear();
+                   
+                    stack.Clear();                
+               
                 });
 
                 stack.Clear();
-                stack = null;
-
                 subcommands.Clear();
+
+                stack = null;
                 subcommands = null;
 
             }
@@ -68,6 +61,8 @@ namespace K2host.Console.Classes
             return ret;
 
         }
+
+        #region "Destructor"
 
         bool IsDisposed = false;
 
@@ -91,6 +86,7 @@ namespace K2host.Console.Classes
             IsDisposed = true;
         }
 
+        #endregion
     }
 
 }

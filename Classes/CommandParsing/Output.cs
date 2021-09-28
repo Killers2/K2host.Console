@@ -31,10 +31,7 @@ namespace K2host.Console.Classes
         public Output(List<string> subcommands)
             : this()
         {
-            Commands = new List<List<string>>
-                {
-                    subcommands
-                };
+            Commands = new List<List<string>> { subcommands };
         }
 
         public Output(List<List<string>> commands)
@@ -56,6 +53,8 @@ namespace K2host.Console.Classes
             return Commands.Where(c => c[0] == subcommand).FirstOrDefault();
         }
        
+        #region "Destructor"
+
         bool IsDisposed = false;
 
         public void Dispose()
@@ -81,6 +80,8 @@ namespace K2host.Console.Classes
 
             IsDisposed = true;
         }
+
+        #endregion
 
     }
 

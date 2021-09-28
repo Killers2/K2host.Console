@@ -27,4 +27,17 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="3.11.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\K2host.Core\K2host.Core.csproj" />
+    <ProjectReference Include="..\K2host.Data\K2host.Data.csproj" />
+    <ProjectReference Include="..\K2host.Threading\K2host.Threading.csproj" />
+  </ItemGroup>
+
 </Project>
