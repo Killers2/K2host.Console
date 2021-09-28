@@ -14,6 +14,8 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>K2host, Console, ConsoleX</PackageTags>
     <Description>A Console base lib for custom console applicions and console based services.</Description>
+    <Version>1.0.1</Version>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
