@@ -482,7 +482,7 @@ namespace K2host.Console.Classes
             Print("Console quick help:");
             Print("---------------------------------------------------------");
             Print("  When an alias, command or function is being sent, the console will try and execute, and output the value(s).");
-            Print("  " + CommandParser.CommandDelimitor + "    Use the semicolon to split commands when typing multiple commands on one line.");
+            Print("  " + string.Join(" ", CommandParser.CommandDelimiters) + "    Use the semicolon to split commands when typing multiple commands on one line.");
             Print(string.Empty);
             Print("List of commands:");
             Print("---------------------------------------------------------");

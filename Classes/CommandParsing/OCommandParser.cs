@@ -7,6 +7,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace K2host.Console.Classes
@@ -15,10 +16,12 @@ namespace K2host.Console.Classes
     public class OCommandParser : IDisposable
     {
 
-        public string CommandDelimitor { get; set; } = ";";
+        public char[] CommandDelimiters { get; set; } = new char[] { ';' };
 
+        public char[] SubCommandDelimiters { get; set; } = new char[] { '.', ' ' };
+        
         public OCommandParser() { }
-
+        
         public Output Parse(string e)
         {
 
@@ -34,17 +37,24 @@ namespace K2host.Console.Classes
                 List<string> subcommands    = new();
                 List<string> stack          = new();
 
-                subcommands.AddRange(Regex.Split(e, CommandDelimitor + "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
+                //We split the command in to subcommands first.
+                subcommands
+                    .AddRange(e.Split(CommandDelimiters, StringSplitOptions.RemoveEmptyEntries));
 
-                subcommands.ForEach(subcommand => {
-                   
-                    stack.AddRange(Regex.Split(subcommand, " (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
-                   
-                    ret.Commands.Add(new List<string>(stack.ToArray()));
-                   
-                    stack.Clear();                
-               
-                });
+                //Now lets build sub commands for each stack
+                subcommands
+                    .ForEach(subcommand => {
+                        stack.AddRange(
+                            subcommand
+                                .Split('"') // allow quotes not to split ie anything in quotes will be one string, where the rest is split
+                                .Select((element, index) => index % 2 == 0 ? element.Split(SubCommandDelimiters, StringSplitOptions.RemoveEmptyEntries) : new string[] { element })
+                                .SelectMany(element => element)
+                                .ToArray()
+                        );
+
+                        ret.Commands.Add(new List<string>(stack.ToArray()));
+                        stack.Clear();                
+                    });
 
                 stack.Clear();
                 subcommands.Clear();
