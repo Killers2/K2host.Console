@@ -15,15 +15,12 @@ using System.Data;
 using Microsoft.VisualBasic;
 
 using K2host.Core;
-using K2host.Data.Classes;
-using K2host.Data.Enums;
 using K2host.Console.Delegates;
 using K2host.Console.Interfaces;
 using K2host.Console.Classes;
 using K2host.Console.Enums;
 
 using gl = K2host.Core.OHelpers;
-using gd = K2host.Data.OHelpers;
 
 namespace K2host.Console.Managers
 {

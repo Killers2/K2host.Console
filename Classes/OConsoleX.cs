@@ -87,7 +87,7 @@ namespace K2host.Console.Classes
 
         public StringBuilder PasswordBuilder { get; } = new();
         
-        bool WasJustPrinted      = false;
+        bool WasJustPrinted = false;
 
         #endregion
 
@@ -95,10 +95,10 @@ namespace K2host.Console.Classes
 
         public OConsoleX()
         {
-
             //System.Console.WindowWidth = 150;
             //System.Console.BufferWidth = System.Console.WindowWidth;
-
+            CommandParser.CommandDelimiters = new char[] { ';' };
+            CommandParser.SubCommandDelimiters = new char[] { ' ' };
         }
 
         #endregion
@@ -210,6 +210,7 @@ namespace K2host.Console.Classes
             Print(string.Empty, ConsoleColor.White, true, true);
 
             while (Running)
+            {
                 try
                 {
                     if (!TextEditorEnabled && !PasswordKeys)
@@ -223,7 +224,7 @@ namespace K2host.Console.Classes
                 {
                     Print("ConsoleX::Exception: " + ex.Message, ConsoleColor.Red, true, true);
                 }
-
+            }
         }
 
         public void Hibernate()

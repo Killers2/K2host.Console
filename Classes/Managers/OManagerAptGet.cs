@@ -24,53 +24,6 @@ namespace K2host.Console.Managers
     public class OManagerAptGet : IConsoleCommand
     {
 
-        //#region "Embedded IConsoleComponent"
-
-        //public class Alias : IConsoleComponent
-        //{
-
-        //    public string CommandKey { get; set; } = string.Empty;
-
-        //    public string Description { get; set; } = string.Empty;
-
-        //    public string SyntaxHelp { get; set; } = string.Empty;
-
-        //    public string Commands { get; set; } = string.Empty;
-           
-        //    public bool IsProtected { get; set; } = false;
-
-        //    public Alias() { }
-
-        //    #region "Destructor"
-
-        //    bool IsDisposed = false;
-
-        //    public void Dispose()
-        //    {
-        //        Dispose(true);
-        //        GC.SuppressFinalize(this);
-        //    }
-
-        //    protected virtual void Dispose(bool disposing)
-        //    {
-        //        if (IsDisposed)
-        //            return;
-
-        //        if (disposing)
-        //        {
-
-
-        //        }
-
-        //        IsDisposed = true;
-        //    }
-
-        //    #endregion
-
-        //}
-
-        //#endregion
-
         #region "Properties"
 
         public IConsole Parent { get; set; }
@@ -97,28 +50,28 @@ namespace K2host.Console.Managers
 
         //public bool Add(string Name, string Command, bool IsProtected = false) 
         //{
-        //    if (string.IsNullOrEmpty(Name.Trim()))
-        //    {
-        //        OnPrint?.Invoke("Alias register : Name is empty.".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (string.IsNullOrEmpty(Name.Trim()))
+        ////    {
+        ////        OnPrint?.Invoke("Alias register : Name is empty.".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
-        //    if (string.IsNullOrEmpty(Command.Trim()))
-        //    {
-        //        OnPrint?.Invoke("Alias register : Command is empty.".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (string.IsNullOrEmpty(Command.Trim()))
+        ////    {
+        ////        OnPrint?.Invoke("Alias register : Command is empty.".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
-        //    Components.Add(Name, new Alias()
-        //    {
-        //        CommandKey  = Name,
-        //        Commands    = Command,
-        //        IsProtected = IsProtected
-        //    });
+        ////    Components.Add(Name, new Alias()
+        ////    {
+        ////        CommandKey  = Name,
+        ////        Commands    = Command,
+        ////        IsProtected = IsProtected
+        ////    });
 
-        //    Parent.ConfigurationSave();
+        ////    Parent.ConfigurationSave();
 
-        //    OnPrint?.Invoke("Alias ".Push(2) + Name + " Registered!", ConsoleColor.Green, true);
+        ////    OnPrint?.Invoke("Alias ".Push(2) + Name + " Registered!", ConsoleColor.Green, true);
 
         //    return true;
         //}
@@ -126,30 +79,30 @@ namespace K2host.Console.Managers
         //public bool Edit(string Name, string Command, bool IsProtected = false)
         //{
 
-        //    if (string.IsNullOrEmpty(Name.Trim()))
-        //    {
-        //        OnPrint?.Invoke("Alias register : Name is empty.".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (string.IsNullOrEmpty(Name.Trim()))
+        ////    {
+        ////        OnPrint?.Invoke("Alias register : Name is empty.".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
-        //    if (string.IsNullOrEmpty(Command.Trim()))
-        //    {
-        //        OnPrint?.Invoke("Alias register : Command is empty.".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (string.IsNullOrEmpty(Command.Trim()))
+        ////    {
+        ////        OnPrint?.Invoke("Alias register : Command is empty.".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
-        //    if (!Components.ContainsKey(Name))
-        //    {
-        //        OnPrint?.Invoke("Alias edit : Alias does not exist.".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (!Components.ContainsKey(Name))
+        ////    {
+        ////        OnPrint?.Invoke("Alias edit : Alias does not exist.".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
-        //    ((Alias)Components[Name]).Commands      = Command;
-        //    ((Alias)Components[Name]).IsProtected   = IsProtected;
+        ////    ((Alias)Components[Name]).Commands      = Command;
+        ////    ((Alias)Components[Name]).IsProtected   = IsProtected;
 
-        //    Parent.ConfigurationSave();
+        ////    Parent.ConfigurationSave();
 
-        //    OnPrint?.Invoke("Alias ".Push(2) + Name + " Edited!", ConsoleColor.Green, true);
+        ////    OnPrint?.Invoke("Alias ".Push(2) + Name + " Edited!", ConsoleColor.Green, true);
 
         //    return true;
 
@@ -158,46 +111,46 @@ namespace K2host.Console.Managers
         //public bool Remove(string Name) 
         //{
             
-        //    if (string.IsNullOrEmpty(Name.Trim()))
-        //    {
-        //        OnPrint?.Invoke("Alias remove : Name is empty.".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (string.IsNullOrEmpty(Name.Trim()))
+        ////    {
+        ////        OnPrint?.Invoke("Alias remove : Name is empty.".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
-        //    if (!Components.ContainsKey(Name))
-        //    {
-        //        OnPrint?.Invoke("Alias remove : Name does not exist!".Push(2), ConsoleColor.Red, true, true);
-        //        return false;
-        //    }
+        ////    if (!Components.ContainsKey(Name))
+        ////    {
+        ////        OnPrint?.Invoke("Alias remove : Name does not exist!".Push(2), ConsoleColor.Red, true, true);
+        ////        return false;
+        ////    }
 
 
-        //    Components[Name]?.Dispose();
+        ////    Components[Name]?.Dispose();
 
-        //    Components[Name] = null;
+        ////    Components[Name] = null;
 
-        //    Components.Remove(Name);
+        ////    Components.Remove(Name);
 
-        //    Parent.ConfigurationSave();
+        ////    Parent.ConfigurationSave();
 
-        //    OnPrint?.Invoke("Alias remove : ".Push(2) + Name + " removed!", ConsoleColor.Green, true);
+        ////    OnPrint?.Invoke("Alias remove : ".Push(2) + Name + " removed!", ConsoleColor.Green, true);
 
         //    return true;
         //}
 
         //public void RemoveAll() 
         //{
-        //    string result = string.Empty;
+        ////    string result = string.Empty;
 
-        //    Components.Values.ForEach(c => {
-        //        result += "Alias remove : " + c.CommandKey + " removed!\r\n";
-        //        c.Dispose();
-        //    });
+        ////    Components.Values.ForEach(c => {
+        ////        result += "Alias remove : " + c.CommandKey + " removed!\r\n";
+        ////        c.Dispose();
+        ////    });
 
-        //    Components.Clear();
+        ////    Components.Clear();
 
-        //    Parent.ConfigurationSave();
+        ////    Parent.ConfigurationSave();
 
-        //    OnPrint?.Invoke(result, ConsoleColor.White, true, true);
+        ////    OnPrint?.Invoke(result, ConsoleColor.White, true, true);
 
         //}
 
@@ -222,19 +175,19 @@ namespace K2host.Console.Managers
             
             obj = null;
 
-            if (string.IsNullOrEmpty(key.Trim()))
-            {
-                OnPrint?.Invoke("Alias Execute : Name is empty.".Push(2), ConsoleColor.Red, true, true);
-                return false;
-            }
+            //if (string.IsNullOrEmpty(key.Trim()))
+            //{
+            //    OnPrint?.Invoke("Alias Execute : Name is empty.".Push(2), ConsoleColor.Red, true, true);
+            //    return false;
+            //}
 
-            if (!Components.ContainsKey(key))
-            {
-                OnPrint?.Invoke("Alias Execute : Alias does not exist!".Push(2), ConsoleColor.Red, true, true);
-                return false;
-            }
+            //if (!Components.ContainsKey(key))
+            //{
+            //    OnPrint?.Invoke("Alias Execute : Alias does not exist!".Push(2), ConsoleColor.Red, true, true);
+            //    return false;
+            //}
 
-            OnPrint?.Invoke("Alias Execute : Running ".Push(2) + key, ConsoleColor.White, true);
+            //OnPrint?.Invoke("Alias Execute : Running ".Push(2) + key, ConsoleColor.White, true);
 
             //Parent.DisplayCommands = false;
             //Parent.Run(((Alias)Components[key])?.Commands);
@@ -263,7 +216,7 @@ namespace K2host.Console.Managers
                 //apt-get uninstall APPNAME
                 //apt-get uninstall -y APPNAME
 
-                //on install it will import the lib and then exec the instuction.cfg from the package if any
+                //on install it will import the lib and then exec the instuction.cfg from the package if any for any setup requirements
 
                 switch (subcommand[1])
                 {
