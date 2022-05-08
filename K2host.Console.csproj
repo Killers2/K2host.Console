@@ -14,8 +14,12 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>K2host, Console, ConsoleX</PackageTags>
     <Description>A Console base lib for custom console applicions and console based services.</Description>
-    <Version>1.0.3</Version>
+    <Version>2.0.6</Version>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>D:\Development\K2host Works\K2host.Packages\K2host.Console\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
